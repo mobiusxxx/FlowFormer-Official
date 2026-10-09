@@ -185,8 +185,8 @@ def create_kitti_submission(model, output_path='kitti_submission', sigma=0.05):
             os.makedirs(f'vis_kitti_3patch/image')
 
         image.save(f'vis_kitti_3patch/flow/{test_id}.png')
-        imageio.imwrite(f'vis_kitti_3patch/image/{test_id}_0.png', image1[0].cpu().permute(1, 2, 0).numpy())
-        imageio.imwrite(f'vis_kitti_3patch/image/{test_id}_1.png', image2[0].cpu().permute(1, 2, 0).numpy())
+        # imageio.imwrite(f'vis_kitti_3patch/image/{test_id}_0.png', image1[0].cpu().permute(1, 2, 0).numpy())
+        # imageio.imwrite(f'vis_kitti_3patch/image/{test_id}_1.png', image2[0].cpu().permute(1, 2, 0).numpy())
 
 @torch.no_grad()
 def validate_kitti(model, sigma=0.05):
@@ -302,8 +302,8 @@ def validate_sintel(model, sigma=0.05):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model', help='load model')
-    parser.add_argument('--eval', help='eval benchmark')
+    parser.add_argument('--model', default="C:/Users/mobiu/Desktop/kitti.pth",help='load model')
+    parser.add_argument('--eval', default='kitti_submission', help='eval benchmark')
     parser.add_argument('--small', action='store_true', help='use small model')
     args = parser.parse_args()
 

@@ -13,7 +13,7 @@ _CN.add_noise = False
 _CN.critical_params = []
 
 _CN.transformer = 'latentcostformer'
-_CN.model = 'checkpoints/things.pth'
+_CN.model = 'F:/weights/FlowFormer/sintel.pth'
 
 # latentcostformer
 _CN.latentcostformer = CN()

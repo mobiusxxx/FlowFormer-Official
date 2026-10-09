@@ -151,7 +151,7 @@ def validate_kitti(model):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model', help="restore checkpoint")
+    parser.add_argument('--model',default="C:/Users/mobiu/Desktop/things_kitti.pth",help="restore checkpoint")
     parser.add_argument('--dataset', help="dataset for evaluation")
     parser.add_argument('--small', action='store_true', help='use small model')
     parser.add_argument('--mixed_precision', action='store_true', help='use mixed precision')
@@ -172,20 +172,20 @@ if __name__ == '__main__':
     model.cuda()
     model.eval()
 
-    # create_sintel_submission(model.module, warm_start=True)
-    # create_kitti_submission(model.module)
+    # # create_sintel_submission(model.module, warm_start=True)
+    create_kitti_submission(model.module)
 
-    with torch.no_grad():
-        if args.dataset == 'chairs':
-            validate_chairs(model.module)
+    # with torch.no_grad():
+    #     if args.dataset == 'chairs':
+    #         validate_chairs(model.module)
 
-        elif args.dataset == 'sintel':
-            validate_sintel(model.module)
+    #     elif args.dataset == 'sintel':
+    #         validate_sintel(model.module)
 
-        elif args.dataset == 'kitti':
-            validate_kitti(model.module)
+    #     elif args.dataset == 'kitti':
+    #         validate_kitti(model.module)
 
-        elif args.dataset == 'sintel_submission':
-            create_sintel_submission(model.module)
+    #     elif args.dataset == 'sintel_submission':
+    #         create_sintel_submission(model.module)
 
 

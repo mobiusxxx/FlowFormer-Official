@@ -160,7 +160,7 @@ class FlyingThings3D(FlowDataset):
       
 
 class KITTI(FlowDataset):
-    def __init__(self, aug_params=None, split='training', root='datasets/KITTI'):
+    def __init__(self, aug_params=None, split='training', root=r'F:\datasets\flow\KITTI'):
         super(KITTI, self).__init__(aug_params, sparse=True)
         if split == 'testing':
             self.is_test = True
@@ -170,7 +170,7 @@ class KITTI(FlowDataset):
         images2 = sorted(glob(osp.join(root, 'image_2/*_11.png')))
 
         for img1, img2 in zip(images1, images2):
-            frame_id = img1.split('/')[-1]
+            frame_id = img1.split('\\')[-1]
             self.extra_info += [ [frame_id] ]
             self.image_list += [ [img1, img2] ]
 
